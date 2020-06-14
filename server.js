@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const knex = require("knex");
+const morgan = require("morgan");
 
 const register = require("./controllers/register");
 const signin = require("./controllers/signin");
@@ -23,11 +24,12 @@ const db = knex({
 
 const app = express();
 
+app.use(morgan("combined"));
 app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send(db.users);
+  res.send("DOCKER-BOTS HOORAY!");
 });
 app.post("/signin", signin.handleSignin(db, bcrypt));
 app.post("/register", (req, res) => {
