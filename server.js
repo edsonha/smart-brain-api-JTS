@@ -15,10 +15,10 @@ const image = require("./controllers/image");
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: process.env.DB_PASSWORD,
-    database: "smartbrain",
+    host: process.env.POSTGRES_HOST,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
   },
 });
 
@@ -45,6 +45,6 @@ app.post("/imageurl", (req, res) => {
   image.handleApiCall(req, res);
 });
 
-app.listen(3001, () => {
-  console.log("app is running on port 3001");
+app.listen(3000, () => {
+  console.log("app is running on port 3000");
 });
