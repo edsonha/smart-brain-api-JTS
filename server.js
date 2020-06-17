@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("DOCKER-BOTS HOORAY!");
 });
-app.post("/signin", signin.handleSignin(db, bcrypt));
+app.post("/signin", signin.signInAuthentication(db, bcrypt));
 app.post("/register", (req, res) => {
   register.handleRegister(req, res, db, bcrypt);
 });
