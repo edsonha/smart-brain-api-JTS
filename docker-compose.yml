@@ -12,7 +12,6 @@ services:
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: smart-brain-docker
       POSTGRES_HOST: postgres
-      REDIS_URI: redis://redis:6379
     links:
       - postgres
       - redis
